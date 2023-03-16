@@ -4,7 +4,8 @@ google_text = list(
     title   = c("div.yuRUbf > a > h3","text"),
     link    = c("div.yuRUbf > a","link"),
     text    = c("div.VwiC3b","text"),
-    image   = c("div.Z26q7c img","text")
+    image   = c("div.Z26q7c img","src"),
+    page    = c("td.YyVfkd","text")
 )
 
 # google news ----
@@ -21,6 +22,8 @@ selectors <- list(
     "google text" = google_text,
     "google news" = google_news
 )
+
+
 
 usethis::use_data(selectors, internal = TRUE,overwrite = TRUE)
 

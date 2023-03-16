@@ -7,7 +7,7 @@
 <!-- badges: end -->
 
 webbotparseR allows to parse search engine results that where scraped
-with the [WebBot](https://github.com/gesiscss/WebBot).
+with the [WebBot](https://github.com/gesiscss/WebBot) browser extension.
 
 ## Installation
 
