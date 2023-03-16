@@ -14,8 +14,9 @@ google_news = list(
     title     = c("div.mCBkyc","text"),
     link      = c("a","link"),
     text      = c("div.CEMjEf","text"),
-    image     = c("div.FAkayc img","text"),
-    published = c("div.OSrXXb","text")
+    image     = c("div.FAkayc img","src"),
+    published = c("div.OSrXXb.ZE0LJd.YsWzw","text"),
+    page      = c("td.YyVfkd","text")
 )
 
 selectors <- list(
