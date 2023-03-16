@@ -19,9 +19,19 @@ google_news = list(
     page      = c("td.YyVfkd","text")
 )
 
+# google images ----
+google_images = list(
+    results   = c("div.isv-r.PNCib.MSM1fd.BUooTd","text"),
+    title     = c("h3","text"),
+    link      = c("a.VFACy","link"),
+    text      = c("div.dmeZbb","text"),
+    image     = c("div.bRMDJf > img","src")
+)
+
 selectors <- list(
     "google text" = google_text,
-    "google news" = google_news
+    "google news" = google_news,
+    "google images" = google_images
 )
 
 
