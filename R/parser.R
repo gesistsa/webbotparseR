@@ -8,8 +8,8 @@
 #' @export
 parse_search_results <- function(path, engine, selectors = "latest") {
     current_selectors <- .get_selectors(selectors)
+    engine <- match.arg(engine,names(current_selectors))
     if(file.exists(path)){
-        engine <- match.arg(engine,names(current_selectors))
         doc <- rvest::read_html(path)
         metadata <- parse_metadata(path)
         output <- .parse_search_page(doc,engine, current_selectors)
@@ -18,6 +18,19 @@ parse_search_results <- function(path, engine, selectors = "latest") {
     } else if(dir.exists(path)){
         files <- list.files(path,full.names = TRUE,pattern = "html")
         metadata_list <- lapply(files,parse_metadata)
+        engines <- vapply(metadata_list,.construct_engine,character(1))
+        engine_files <- files[engines==engine]
+        if(length(engine_files) == 0){
+            stop(paste("no files with engine ",engine,"found in path."))
+        }
+        metadata_list <- metadata_list[engines==engine]
+        doc_list <- lapply(engine_files,rvest::read_html)
+        output_list <- lapply(doc_list,.parse_search_page, engine = engine, current_selectors = current_selectors)
+        for(i in seq_along(output_list)){
+            output_list[[i]] <- tibble::add_column(output_list[[i]],metadata_list[[i]])
+        }
+        output <- do.call("rbind",output_list)
+
     }
     output
 }
@@ -112,6 +125,17 @@ parse_metadata <- function(path){
 .remove_file_extension <- function(file){
     sub(pattern = "(.*)\\..*$", replacement = "\\1", file)
 }
+
+.construct_engine <- function(meta){
+    search <- .extract_domain(meta[["search_engine"]])
+    type <- meta[["type"]]
+    paste(search, type)
+}
+
+.extract_domain <- function(url){
+    gsub(pattern = "https://|www\\.|\\..*$", replacement = "", url) #TODO: test stability
+}
+
 
 #' @importFrom fastmap fastmap
 NULL
