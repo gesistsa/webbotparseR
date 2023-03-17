@@ -29,10 +29,39 @@ google_images = list(
     image     = c("div.bRMDJf > img","src")
 )
 
+## duckduckgo text ----
+duckduckgo_text = list(
+    results   = c("article[id|='r1']","text"),
+    title     = c("h2","text"),
+    link      = c("h2 > a","link"),
+    text      = c("div:nth-child(3) span:last-child","text")
+)
+
+## duckduckgo images ----
+duckduckgo_images = list(
+    results   = c("div.tile","text"),
+    title     = c("span.tile--img__title","text"),
+    link      = c("a.tile--img__sub","link"),
+    image     = c("img.tile--img__img","src")
+)
+
+## duckduckgo news ----
+duckduckgo_news = list(
+    results   = c("div.result__body","text"),
+    title     = c("h2.result__title","text"),
+    link      = c("a.result__a","link"),
+    text      = c("div.result__snippet","text"),
+    source    = c("a.result__url","text"),
+    published = c("span.result__timestamp","text")
+)
+
 selectors_v1 <- list(
     "google text" = google_text,
     "google news" = google_news,
-    "google images" = google_images
+    "google images" = google_images,
+    "duckduckgo text" = duckduckgo_text,
+    "duckduckgo news" = duckduckgo_news,
+    "duckduckgo images" = duckduckgo_images,
 )
 attr(selectors_v1, "class") <- "webbot_selectors"
 

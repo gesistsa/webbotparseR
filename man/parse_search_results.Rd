@@ -4,12 +4,15 @@
 \alias{parse_search_results}
 \title{Parse search engine results}
 \usage{
-parse_search_results(path, engine)
+parse_search_results(path, engine, selectors = "latest")
 }
 \arguments{
 \item{path}{character. either a path to a file that contains search results or a path to a directory containing search engine result files}
 
 \item{engine}{character.}
+
+\item{selectors}{either character or a \code{webbot_selectors} S3 object. For character, it represents the selectors version and valid choices are listed
+in \code{selectors_versions} and "latest" (select the latest version). You can also supply your own \code{webbot_selectors} object. TODO: A vignette on how to construct the object.}
 }
 \value{
 a tibble of parsed search engine results
