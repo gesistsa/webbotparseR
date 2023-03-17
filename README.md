@@ -4,6 +4,9 @@
 # webbotparseR <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/schochastics/webbotparseR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/schochastics/webbotparseR?branch=main)
 <!-- badges: end -->
 
 webbotparseR allows to parse search engine results that where scraped

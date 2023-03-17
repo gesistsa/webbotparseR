@@ -61,7 +61,7 @@ selectors_v1 <- list(
     "google images" = google_images,
     "duckduckgo text" = duckduckgo_text,
     "duckduckgo news" = duckduckgo_news,
-    "duckduckgo images" = duckduckgo_images,
+    "duckduckgo images" = duckduckgo_images
 )
 attr(selectors_v1, "class") <- "webbot_selectors"
 

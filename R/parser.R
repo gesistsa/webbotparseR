@@ -3,7 +3,7 @@
 #' @param path character. either a path to a file that contains search results or a path to a directory containing search engine result files
 #' @param engine character.
 #' @param selectors either character or a `webbot_selectors` S3 object. For character, it represents the selectors version and valid choices are listed
-#' in `selectors_versions` and "latest" (select the latest version). You can also supply your own `webbot_selectors` object. TODO: A vignette on how to construct the object.
+#' in `selectors_versions` and "latest" (select the latest version). You can also supply your own `webbot_selectors` object.
 #' @return a tibble of parsed search engine results
 #' @export
 parse_search_results <- function(path, engine, selectors = "latest") {

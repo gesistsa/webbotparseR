@@ -12,7 +12,7 @@ parse_search_results(path, engine, selectors = "latest")
 \item{engine}{character.}
 
 \item{selectors}{either character or a \code{webbot_selectors} S3 object. For character, it represents the selectors version and valid choices are listed
-in \code{selectors_versions} and "latest" (select the latest version). You can also supply your own \code{webbot_selectors} object. TODO: A vignette on how to construct the object.}
+in \code{selectors_versions} and "latest" (select the latest version). You can also supply your own \code{webbot_selectors} object.}
 }
 \value{
 a tibble of parsed search engine results
