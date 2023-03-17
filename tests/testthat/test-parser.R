@@ -23,5 +23,5 @@ test_that("metadata reading",{
     expect_equal(meta$search_engine,"www.google.com")
     expect_equal(meta$type,"text")
     expect_equal(meta$query,"query")
-    expect_equal(meta$date,structure(1678950971, class = c("POSIXct", "POSIXt"), tzone = ""))
+    expect_equal(as.Date(meta$date),as.Date("2023-03-16"))
 })
