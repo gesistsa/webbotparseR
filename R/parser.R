@@ -2,14 +2,17 @@
 #'
 #' @param path character. either a path to a file that contains search results or a path to a directory containing search engine result files
 #' @param engine character.
+#' @param selectors either character or a `webbot_selectors` S3 object. For character, it represents the selectors version and valid choices are listed
+#' in `selectors_versions` and "latest" (select the latest version). You can also supply your own `webbot_selectors` object. TODO: A vignette on how to construct the object.
 #' @return a tibble of parsed search engine results
 #' @export
-parse_search_results <- function(path,engine) {
+parse_search_results <- function(path, engine, selectors = "latest") {
+    current_selectors <- .get_selectors(selectors)
     if(file.exists(path)){
-        engine <- match.arg(engine,names(selectors))
+        engine <- match.arg(engine,names(current_selectors))
         doc <- rvest::read_html(path)
         metadata <- parse_metadata(path)
-        output <- .parse_search_page(doc,engine)
+        output <- .parse_search_page(doc,engine, current_selectors)
         output <- tibble::add_column(output,metadata)
 
     } else if(dir.exists(path)){
@@ -19,8 +22,34 @@ parse_search_results <- function(path,engine) {
     output
 }
 
-.parse_search_page <- function(doc,engine){
-    selector <- selectors[[engine]]
+.is_webbot_selectors <- function(x) {
+    inherits(x, "webbot_selectors")
+}
+
+.get_selectors <- function(selectors, lib = NULL, vers = NULL) {
+    if (is.null(lib)) {
+        lib <- selectors_library
+    }
+    if (is.null(vers)) {
+        vers <- selectors_versions
+    }
+    if (.is_webbot_selectors(selectors)) {
+        return(selectors)
+    }
+    if (selectors == "latest") {
+        version <- vers$version[which.max(vers$snapshot_date)]
+        return(lib$get(version))
+    }
+    if (selectors %in% vers$version) {
+        return(lib$get(selectors))
+        ## TODO selectors = "closest"
+        ## select the best version according to `path` modification date alas `rang`
+    }
+    stop("Invalid `selectors`.")
+}
+
+.parse_search_page <- function(doc,engine, current_selectors){
+    selector <- current_selectors[[engine]]
     results_selector <- selector[["results"]][1]
     if(is.null(results_selector)){
         stop("no search result selector found.")
