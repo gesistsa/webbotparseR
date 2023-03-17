@@ -1,4 +1,5 @@
-# google text ----
+## version 1
+## google text ----
 google_text = list(
     results = c("div.g > div","xml"),
     title   = c("div.yuRUbf > a > h3","text"),
@@ -28,13 +29,16 @@ google_images = list(
     image     = c("div.bRMDJf > img","src")
 )
 
-selectors <- list(
+selectors_v1 <- list(
     "google text" = google_text,
     "google news" = google_news,
     "google images" = google_images
 )
+attr(selectors_v1, "class") <- "webbot_selectors"
 
+selectors_library <- fastmap::fastmap()
+selectors_library$set("ver1", selectors_v1)
+selectors_versions <- data.frame(version = c("ver1"), snapshot_date = as.Date("2023-03-17"))
 
-
-usethis::use_data(selectors, internal = TRUE,overwrite = TRUE)
+usethis::use_data(selectors_library, selectors_versions, internal = TRUE, overwrite = TRUE)
 
