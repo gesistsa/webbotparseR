@@ -2,3 +2,4 @@
 
 export(parse_metadata)
 export(parse_search_results)
+importFrom(fastmap,fastmap)

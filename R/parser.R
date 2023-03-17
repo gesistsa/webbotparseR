@@ -112,3 +112,6 @@ parse_metadata <- function(path){
 .remove_file_extension <- function(file){
     sub(pattern = "(.*)\\..*$", replacement = "\\1", file)
 }
+
+#' @importFrom fastmap fastmap
+NULL
