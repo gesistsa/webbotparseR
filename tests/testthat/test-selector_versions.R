@@ -40,9 +40,9 @@ test_that(".get_selectors really working not NULL", {
 })
 
 test_that("integration", {
-    res1 <- parse_search_results("../testdata/google_text.html", "google text", "latest")
-    res2 <- parse_search_results("../testdata/google_text.html", "google text", "ver1")
-    res3 <- parse_search_results("../testdata/google_text.html", "google text", selectors_library$get("ver1"))
+    res1 <- parse_search_results("../testdata/www.google.com_query_text_2023-03-16_08_16_05.html", "google text", "latest")
+    res2 <- parse_search_results("../testdata/www.google.com_query_text_2023-03-16_08_16_05.html", "google text", "ver1")
+    res3 <- parse_search_results("../testdata/www.google.com_query_text_2023-03-16_08_16_05.html", "google text", selectors_library$get("ver1"))
     expect_equal(res1, res2)
     expect_equal(res2, res3)
     expect_equal(res1, res3)
