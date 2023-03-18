@@ -9,13 +9,7 @@
 parse_search_results <- function(path, engine, selectors = "latest") {
     current_selectors <- .get_selectors(selectors)
     engine <- match.arg(engine,names(current_selectors))
-    if(file.exists(path)){
-        doc <- rvest::read_html(path)
-        metadata <- parse_metadata(path)
-        output <- .parse_search_page(doc,engine, current_selectors)
-        output <- tibble::add_column(output,metadata)
-
-    } else if(dir.exists(path)){
+    if(dir.exists(path)){
         files <- list.files(path,full.names = TRUE,pattern = "html")
         metadata_list <- lapply(files,parse_metadata)
         engines <- vapply(metadata_list,.construct_engine,character(1))
@@ -29,10 +23,15 @@ parse_search_results <- function(path, engine, selectors = "latest") {
         for(i in seq_along(output_list)){
             output_list[[i]] <- tibble::add_column(output_list[[i]],metadata_list[[i]])
         }
-        output <- do.call("rbind",output_list)
-
+        return(do.call("rbind",output_list))
+    } else if(file.exists(path)){
+        doc <- rvest::read_html(path)
+        metadata <- parse_metadata(path)
+        output <- .parse_search_page(doc,engine, current_selectors)
+        return(tibble::add_column(output,metadata))
+    } else{
+        stop("no file or directory '",path,"' found")
     }
-    output
 }
 
 .is_webbot_selectors <- function(x) {
