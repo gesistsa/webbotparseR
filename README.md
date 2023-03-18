@@ -7,6 +7,7 @@
 
 [![Codecov test
 coverage](https://codecov.io/gh/schochastics/webbotparseR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/schochastics/webbotparseR?branch=main)
+[![R-CMD-check](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 webbotparseR allows to parse search engine results that where scraped

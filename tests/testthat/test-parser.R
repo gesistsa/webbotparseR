@@ -1,5 +1,5 @@
 test_that("google text latest selector", {
-  expect_no_error(output <- parse_search_results("../testdata/www.google.com_query_news_2023-03-16_08_15_05.html",engine = "google text"))
+  expect_no_error(output <- parse_search_results("../testdata/www.google.com_query_text_2023-03-16_08_16_05.html",engine = "google text"))
   expect_s3_class(output,"tbl_df")
 })
 
