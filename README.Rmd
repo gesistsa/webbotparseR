@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-webbotparseR allows to parse search engine results that where scraped with the [WebBot](https://github.com/gesiscss/WebBot) browser extension.
+webbotparseR allows to parse search engine results that where scraped with the [WebBot](https://github.com/gesiscss/WebBot) browser extension. A similar python library is [also available](https://github.com/gesiscss/WebBot-tutorials).
 
 ## Installation
 

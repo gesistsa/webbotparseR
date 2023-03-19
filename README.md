@@ -12,6 +12,8 @@ coverage](https://codecov.io/gh/schochastics/webbotparseR/branch/main/graph/badg
 
 webbotparseR allows to parse search engine results that where scraped
 with the [WebBot](https://github.com/gesiscss/WebBot) browser extension.
+A similar python library is [also
+available](https://github.com/gesiscss/WebBot-tutorials).
 
 ## Installation
 
