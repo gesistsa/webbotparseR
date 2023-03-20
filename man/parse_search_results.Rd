@@ -20,3 +20,10 @@ a tibble of parsed search engine results
 \description{
 Parse search engine results
 }
+\examples{
+search_html <- system.file(
+    "www.google.com_climatechange_text_2023-03-16_08_16_11.html",
+    package = "webbotparseR")
+
+parse_search_results(search_html, engine = "google text")
+}

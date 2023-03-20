@@ -12,7 +12,8 @@ RoxygenNote: 7.2.3
 Imports: 
     rvest,
     tibble,
-    fastmap
+    fastmap,
+    base64enc
 Depends: 
     R (>= 3.5)
 Suggests: 

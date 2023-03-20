@@ -5,6 +5,12 @@
 #' @param selectors either character or a `webbot_selectors` S3 object. For character, it represents the selectors version and valid choices are listed
 #' in `selectors_versions` and "latest" (select the latest version). You can also supply your own `webbot_selectors` object.
 #' @return a tibble of parsed search engine results
+#' @examples
+#' search_html <- system.file(
+#'     "www.google.com_climatechange_text_2023-03-16_08_16_11.html",
+#'     package = "webbotparseR")
+#'
+#' parse_search_results(search_html, engine = "google text")
 #' @export
 parse_search_results <- function(path, engine, selectors = "latest") {
     current_selectors <- .get_selectors(selectors)
@@ -111,6 +117,8 @@ parse_search_results <- function(path, engine, selectors = "latest") {
 #'
 #' @param path character. a path to a file that contains search results
 #' @return a tibble of parsed search engine results
+#' @examples
+#' parse_metadata("www.google.com_climate change_text_2023-03-16_08_16_11.html")
 #' @export
 parse_metadata <- function(path){
     file <- .remove_file_extension(basename(path))
