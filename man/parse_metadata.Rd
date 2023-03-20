@@ -15,3 +15,6 @@ a tibble of parsed search engine results
 \description{
 Parse metadata from search engine results
 }
+\examples{
+parse_metadata("www.google.com_climate change_text_2023-03-16_08_16_11.html")
+}
