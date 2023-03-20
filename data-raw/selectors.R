@@ -11,7 +11,7 @@ google_text = list(
 
 # google news ----
 google_news = list(
-    results   = c("div.SoaBEf","text"),
+    results   = c("div.SoaBEf","xml"),
     title     = c("div.mCBkyc","text"),
     link      = c("a","link"),
     text      = c("div.CEMjEf","text"),
@@ -22,7 +22,7 @@ google_news = list(
 
 # google images ----
 google_images = list(
-    results   = c("div.isv-r.PNCib.MSM1fd.BUooTd","text"),
+    results   = c("div.isv-r.PNCib.MSM1fd.BUooTd","xml"),
     title     = c("h3","text"),
     link      = c("a.VFACy","link"),
     text      = c("div.dmeZbb","text"),
@@ -31,7 +31,7 @@ google_images = list(
 
 ## duckduckgo text ----
 duckduckgo_text = list(
-    results   = c("article[id|='r1']","text"),
+    results   = c("article[id|='r1']","xml"),
     title     = c("h2","text"),
     link      = c("h2 > a","link"),
     text      = c("div:nth-child(3) span:last-child","text")
@@ -39,7 +39,7 @@ duckduckgo_text = list(
 
 ## duckduckgo images ----
 duckduckgo_images = list(
-    results   = c("div.tile","text"),
+    results   = c("div.tile","xml"),
     title     = c("span.tile--img__title","text"),
     link      = c("a.tile--img__sub","link"),
     image     = c("img.tile--img__img","src")
@@ -47,7 +47,7 @@ duckduckgo_images = list(
 
 ## duckduckgo news ----
 duckduckgo_news = list(
-    results   = c("div.result__body","text"),
+    results   = c("div.result__body","xml"),
     title     = c("h2.result__title","text"),
     link      = c("a.result__a","link"),
     text      = c("div.result__snippet","text"),
@@ -55,14 +55,46 @@ duckduckgo_news = list(
     published = c("span.result__timestamp","text")
 )
 
+## yahoo text-----
+yahoo_text = list(
+    results = c("li > div.dd.algo","xml"),
+    title   = c("h3.title","text"),
+    link    = c("h3.title > a","link"),
+    text    = c("div.compText.aAbs","text"),
+    page    = c("div.pages > strong","text")
+)
+## yahoo news-----
+yahoo_news = list(
+    results   = c("li > div.dd.NewsArticle","xml"),
+    title     = c("h4.s-title","text"),
+    link      = c("h4.s-title > a","link"),
+    text      = c("p.s-desc","text"),
+    image     = c("a img","src"),
+    page      = c("div.pages > strong","text"),
+    published = c("span.fc-2nd.s-time.mr-8","text")
+)
+
+## yahoo images-----
+yahoo_images = list(
+    results   = c("li[id^='resitem']","xml"),
+    title     = c("a.img","label"),
+    link      = c("a","link"),
+    image     = c("a.img:first-child > img","src")
+)
+
+
 selectors_v1 <- list(
     "google text" = google_text,
     "google news" = google_news,
     "google images" = google_images,
     "duckduckgo text" = duckduckgo_text,
     "duckduckgo news" = duckduckgo_news,
-    "duckduckgo images" = duckduckgo_images
+    "duckduckgo images" = duckduckgo_images,
+    "yahoo text" = yahoo_text,
+    "yahoo news" = yahoo_news,
+    "yahoo images" =yahoo_images
 )
+
 attr(selectors_v1, "class") <- "webbot_selectors"
 
 selectors_library <- fastmap::fastmap()

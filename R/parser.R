@@ -94,6 +94,7 @@ parse_search_results <- function(path, engine, selectors = "latest") {
         "text" = rvest::html_text(elem),
         "link" = rvest::html_attr(elem,"href"),
         "src"  = rvest::html_attr(elem,"src"),
+        "label"  = rvest::html_attr(elem,"aria-label")
     )
 }
 
@@ -132,9 +133,12 @@ parse_metadata <- function(path){
 }
 
 .extract_domain <- function(url){
-    gsub(pattern = "https://|www\\.|\\..*$", replacement = "", url) #TODO: test stability
+    if(grepl("yahoo",url)){ #us.yahoo workaround
+    return("yahoo")
+    } else{
+        return(gsub(pattern = "https://|www\\.|\\..*$", replacement = "", url)) #TODO: test stability
+    }
 }
-
 
 #' @importFrom fastmap fastmap
 NULL

@@ -18,6 +18,11 @@ test_that("ddg news latest selector", {
     expect_s3_class(output,"tbl_df")
 })
 
+test_that("yahoo text latest selector", {
+    expect_no_error(output <- parse_search_results("../testdata/us.yahoo.com_query_text_2023-03-20_07_57_12.html",engine = "yahoo text"))
+    expect_s3_class(output,"tbl_df")
+})
+
 test_that("metadata reading",{
     expect_no_error(meta <- parse_metadata(".../testdata/www.google.com_query_text_2023-03-16_08_16_11.html"))
     expect_equal(meta$search_engine,"www.google.com")
