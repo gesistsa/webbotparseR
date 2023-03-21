@@ -39,7 +39,7 @@ duckduckgo_text = list(
 
 ## duckduckgo images ----
 duckduckgo_images = list(
-    results   = c("div.tile","xml"),
+    results   = c("div.tile--img:not(.is-hidden)","xml"),
     title     = c("span.tile--img__title","text"),
     link      = c("a.tile--img__sub","link"),
     image     = c("img.tile--img__img","src")
