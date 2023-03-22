@@ -30,3 +30,23 @@ You can install the development version of webbotparseR like so:
 remotes::install_github("schochastics/webbotparseR")
 ```
 
+The package contains an example html from a google search on climate change.
+```{r ex_file}
+library(webbotparseR)
+ex_file <- system.file("www.google.com_climatechange_text_2023-03-16_08_16_11.html", package = "webbotparseR")
+```
+
+Such search results can be parsed via the function `parse_search_results()`. The parameter `engine` is used to specify the
+search engine and the search type.  
+
+```{r parse}
+output <- parse_search_results(path = ex_file,engine = "google text")
+output
+```
+
+Note that images are always returned base64 encoded.
+```{r image}
+output$image[1]
+```
+
+The function `base64_to_img()` can be used to decode the image and save it in an appropriate format.
