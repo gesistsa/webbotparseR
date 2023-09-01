@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/404.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/index.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/reference/base64_to_img.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/reference/parse_metadata.html</loc>
+  </url>
+  <url>
+    <loc>https://schochastics.github.io/webbotparseR/reference/parse_search_results.html</loc>
+  </url>
+</urlset>
