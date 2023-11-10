@@ -6,8 +6,8 @@
 <!-- badges: start -->
 
 [![Codecov test
-coverage](https://codecov.io/gh/schochastics/webbotparseR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/schochastics/webbotparseR?branch=main)
-[![R-CMD-check](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml)
+coverage](https://codecov.io/gh/schochastics/webbotparseR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/gesistsa/webbotparseR?branch=main)
+[![R-CMD-check](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gesistsa/webbotparseR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 webbotparseR allows to parse search engine results that where scraped
@@ -36,22 +36,22 @@ Such search results can be parsed via the function
 search engine and the search type.
 
 ``` r
-output <- parse_search_results(path = ex_file,engine = "google text")
+output <- parse_search_results(path = ex_file, engine = "google text")
 output
 #> # A tibble: 10 × 10
-#>    title link  text  image page  posit…¹ searc…² type  query date               
-#>    <chr> <chr> <chr> <chr> <chr>   <int> <chr>   <chr> <chr> <dttm>             
-#>  1 What… http… Clim… data… 1           1 www.go… text  clim… 2023-03-16 08:16:11
-#>  2 Home… http… Vita… data… 1           2 www.go… text  clim… 2023-03-16 08:16:11
-#>  3 Vita… http… “Cli… data… 1           3 www.go… text  clim… 2023-03-16 08:16:11
-#>  4 Clim… http… In c… data… 1           4 www.go… text  clim… 2023-03-16 08:16:11
-#>  5 IPCC… http… The … data… 1           5 www.go… text  clim… 2023-03-16 08:16:11
-#>  6 Clim… http… Comp… data… 1           6 www.go… text  clim… 2023-03-16 08:16:11
-#>  7 Clim… http… Clim… <NA>  1           7 www.go… text  clim… 2023-03-16 08:16:11
-#>  8 UNFC… http… What… data… 1           8 www.go… text  clim… 2023-03-16 08:16:11
-#>  9 Clim… http… Clim… data… 1           9 www.go… text  clim… 2023-03-16 08:16:11
-#> 10 Caus… http… This… data… 1          10 www.go… text  clim… 2023-03-16 08:16:11
-#> # … with abbreviated variable names ¹​position, ²​search_engine
+#>    title              link  text  image page  position search_engine type  query
+#>    <chr>              <chr> <chr> <chr> <chr>    <int> <chr>         <chr> <chr>
+#>  1 What Is Climate C… http… Clim… data… 1            1 www.google.c… text  clim…
+#>  2 Home – Climate Ch… http… Vita… data… 1            2 www.google.c… text  clim…
+#>  3 Vital Signs of th… http… “Cli… data… 1            3 www.google.c… text  clim…
+#>  4 Climate change - … http… In c… data… 1            4 www.google.c… text  clim…
+#>  5 IPCC — Intergover… http… The … data… 1            5 www.google.c… text  clim…
+#>  6 Climate Change | … http… Comp… data… 1            6 www.google.c… text  clim…
+#>  7 Climate change: e… http… Clim… <NA>  1            7 www.google.c… text  clim…
+#>  8 UNFCCC             http… What… data… 1            8 www.google.c… text  clim…
+#>  9 Climate Change - … http… Clim… data… 1            9 www.google.c… text  clim…
+#> 10 Causes of climate… http… This… data… 1           10 www.google.c… text  clim…
+#> # ℹ 1 more variable: date <dttm>
 ```
 
 Note that images are always returned base64 encoded.

@@ -6,18 +6,18 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "man/figures/README-",
+    out.width = "100%"
 )
 ```
 
 # webbotparseR  <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
-[![Codecov test coverage](https://codecov.io/gh/schochastics/webbotparseR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/schochastics/webbotparseR?branch=main)
-[![R-CMD-check](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/schochastics/webbotparseR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/gesistsa/webbotparseR?branch=main)
+[![R-CMD-check](https://github.com/schochastics/webbotparseR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gesistsa/webbotparseR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 webbotparseR allows to parse search engine results that where scraped with the [WebBot](https://github.com/gesiscss/WebBot) browser extension. A similar python library is [also available](https://github.com/gesiscss/WebBot-tutorials).
@@ -40,7 +40,7 @@ Such search results can be parsed via the function `parse_search_results()`. The
 search engine and the search type.  
 
 ```{r parse}
-output <- parse_search_results(path = ex_file,engine = "google text")
+output <- parse_search_results(path = ex_file, engine = "google text")
 output
 ```
 
