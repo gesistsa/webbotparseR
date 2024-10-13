@@ -19,8 +19,10 @@ Convert a data uri to an image in the correct format and save it to a file.
 }
 \examples{
 \dontrun{
-data_uri <- paste0("data:image/png;base64,",
-    base64enc::base64encode(system.file('logo.png', package = "webbotparseR")))
-base64_to_img(data_uri,"logo")
+data_uri <- paste0(
+    "data:image/png;base64,",
+    base64enc::base64encode(system.file("logo.png", package = "webbotparseR"))
+)
+base64_to_img(data_uri, "logo")
 }
 }
