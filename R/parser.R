@@ -11,7 +11,7 @@
 #'     package = "webbotparseR"
 #' )
 #'
-#' parse_search_results(search_html, engine = "google text")
+#' parse_search_results(search_html, engine = "google text", selectors = "ver1")
 #' @export
 parse_search_results <- function(path, engine, selectors = "latest") {
     current_selectors <- .get_selectors(selectors)
