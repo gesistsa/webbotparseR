@@ -65,13 +65,24 @@ in <code>selectors_versions</code> and "latest" (select the latest version). You
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">search_html</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    <span class="st">"www.google.com_climatechange_text_2023-03-16_08_16_11.html"</span>,</span></span>
-<span class="r-in"><span>    package <span class="op">=</span> <span class="st">"webbotparseR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    package <span class="op">=</span> <span class="st">"webbotparseR"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">parse_search_results</span><span class="op">(</span><span class="va">search_html</span>, engine <span class="op">=</span> <span class="st">"google text"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in recycle_columns(x, .rows, lengths):</span> Tibble columns must have compatible sizes.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Size 10: Columns `title`, `text`, `image`, and `position`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Size 20: Column `link`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Only values of size one are recycled.</span>
+<span class="r-in"><span><span class="fu">parse_search_results</span><span class="op">(</span><span class="va">search_html</span>, engine <span class="op">=</span> <span class="st">"google text"</span>, selectors <span class="op">=</span> <span class="st">"ver1"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    title              link  text  image page  position search_engine type  query</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> What Is Climate C… http… Clim… data… 1            1 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Home – Climate Ch… http… Vita… data… 1            2 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Vital Signs of th… http… “Cli… data… 1            3 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Climate change - … http… In c… data… 1            4 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> IPCC — Intergover… http… The … data… 1            5 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Climate Change | … http… Comp… data… 1            6 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Climate change: e… http… Clim… <span style="color: #BB0000;">NA</span>    1            7 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> UNFCCC             http… What… data… 1            8 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Climate Change - … http… Clim… data… 1            9 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Causes of climate… http… This… data… 1           10 www.google.c… text  clim…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: date &lt;dttm&gt;</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
